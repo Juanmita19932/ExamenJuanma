@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Reserva>
+@using ExamenJuanma.Models;
+
+<br />
+<a href="@Url.Action("Create")" class="btn btn-primary">Crear Reserva</a>
+<br />
+<br />
+<table class="table table-bordered table-hover">
+    <thead class="table-primary">
+        <tr>
+            
+            <th scope="col">HoraInicio</th>
+            <th scope="col">HoraSalida</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Reserva reserva in Model)
+        {
+            <tr>               
+                <td>@reserva.HoraInicio</td>
+                <td>@reserva.HoraSalida</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = reserva.Id })" class="btn btn-secondary btn-sm">Editar</a>
+                    <form action="@Url.Action("Delete", new { id = reserva.Id })" method="post" style="display: inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

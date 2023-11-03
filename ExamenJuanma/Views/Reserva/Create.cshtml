@@ -1,0 +1,20 @@
+﻿@model ExamenJuanma.Models.Reserva
+<br />
+<h2>Agregar Producto</h2>
+
+@using (Html.BeginForm("Create", "Reserva", FormMethod.Post, new { @class = "needs-validation", novalidate = "true" }))
+{
+   
+    <div class="form-group">
+        @Html.LabelFor(model => model.HoraInicio, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.HoraInicio, new { @class = "form-control", required = "required" })
+        <div class="invalid-feedback">Por favor ingresa la hora de inicio.</div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.HoraSalida, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.HoraSalida, new { @class = "form-control", required = "required" })
+        <div class="invalid-feedback">Por favor ingresa el precio del producto.</div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Agregar</button>
+}
